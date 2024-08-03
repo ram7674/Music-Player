@@ -98,13 +98,7 @@ const Home = () => {
     }
   };
 
-  const handleVolumeChange = (e) => {
-    const volumeValue = e.target.value;
-    setVolume(volumeValue);
-    if (audioRef.current) {
-      audioRef.current.volume = volumeValue;
-    }
-  };
+ 
 
   const handleMuteUnmute = () => {
     if (audioRef.current) {
@@ -130,22 +124,7 @@ const Home = () => {
     }
   };
 
-  const handlePlaybackRateChange = (rate) => {
-    if (audioRef.current) {
-      audioRef.current.playbackRate = rate;
-      setPlaybackRate(rate);
-      setShowMenu(false);
-    }
-  };
 
-  const handleDownload = () => {
-    if (selectedSong) {
-      const link = document.createElement('a');
-      link.href = selectedSong.url;
-      link.download = `${selectedSong.name}.mp3`;
-      link.click();
-    }
-  };
 
   const filteredSongs = data.filter(song =>
     song.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
