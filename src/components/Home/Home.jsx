@@ -87,6 +87,9 @@ const Home = () => {
       const nextIndex = (currentSongIndex + 1) % data.length;
       setSelectedSong(data[nextIndex]);
       setCurrentSongIndex(nextIndex);
+
+      //this if for next button click also change background color based on song
+      setBackgroundColor(data[nextIndex].accent || '#fff');
     }
   };
 
@@ -95,6 +98,9 @@ const Home = () => {
       const prevIndex = (currentSongIndex - 1 + data.length) % data.length;
       setSelectedSong(data[prevIndex]);
       setCurrentSongIndex(prevIndex);
+
+      //this is also same Previou button clicks change the background color based on song
+      setBackgroundColor(data[prevIndex].accent || '#fff');
     }
   };
 
@@ -159,7 +165,9 @@ const Home = () => {
           {filteredSongs.length > 0 && (
             <div>
               {filteredSongs.map(song => (
-                <div key={song.id} className="songs-card">
+                <div key={song.id} className="songs-card" style={{
+                  backgroundColor: selectedSong?.id === song.id ? '#262017' : 'transparent'
+                }}>
                   <div className="songs-card1" onClick={() => onShowSong(song.id)}>
                     <div className="inside-card">
                       <img src={song.thumbnail} alt={song.name} className="song-image" />

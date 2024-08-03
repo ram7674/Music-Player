@@ -39,6 +39,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    border-radius: 8px;
 }
 .songs-card1{
     display: flex;
@@ -79,7 +80,7 @@
 }
 
 .songs-card1:hover{
-    background-color: rgb(38,32,23);
+    background-color: #7776B3;
     color: rgb(255, 255, 255);
     border-radius: 6px;
 }
